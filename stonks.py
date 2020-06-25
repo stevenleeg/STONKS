@@ -1,6 +1,10 @@
+#!/usr/bin/env python
 import os
 import time
-import urllib.request
+try:
+    from urllib.request import urlopen
+except:
+    from urllib2 import urlopen
 import subprocess
 
 prev_counter = None
@@ -13,7 +17,7 @@ def play_sound():
 
 while True:
     try:
-        response = urllib.request.urlopen('https://stevegattuso.me/stonks.txt').read()
+        response = urlopen('https://stevegattuso.me/stonks.txt').read()
         prev_counter = current_counter
         current_counter = int(response)
 
