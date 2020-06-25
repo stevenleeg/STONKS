@@ -13,8 +13,11 @@ home_dir = os.path.expanduser('~')
 stonks_dir = os.path.join(home_dir, '.stonks')
 
 def play_sound():
+    resp = subprocess.check_output(['osascript', '-e', 'output volume of (get volume settings)'])
+    prev_volume = int(int(resp.decode('utf-8').replace('\n', '')) / 10)
     subprocess.call(['osascript', '-e', 'set Volume 10'])
     subprocess.call(['afplay', os.path.join(stonks_dir, 'STONKS.mp3')])
+    subprocess.call(['osascript', '-e', 'set Volume %d' % prev_volume])
 
 while True:
     try:
