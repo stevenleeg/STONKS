@@ -9,11 +9,12 @@ import subprocess
 
 prev_counter = None
 current_counter = None
-script_directory = os.path.dirname(os.path.abspath(__file__))
+home_dir = os.path.expanduser('~')
+stonks_dir = os.path.join(home_dir, '.stonks')
 
 def play_sound():
-    subprocess.run(['osascript', '-e', 'set Volume 10'])
-    subprocess.run(['afplay', os.path.join(script_directory, 'STONKS.mp3')])
+    subprocess.call(['osascript', '-e', 'set Volume 10'])
+    subprocess.call(['afplay', os.path.join(stonks_dir, 'STONKS.mp3')])
 
 while True:
     try:

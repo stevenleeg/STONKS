@@ -8,3 +8,5 @@ script_directory = os.path.dirname(os.path.abspath(__file__))
 
 subprocess.call(['launchctl', 'unload', os.path.join(stonks_dir, 'STONKS.plist')])
 subprocess.call(['rm', '-rf', stonks_dir])
+subprocess.call(['rm', '/tmp/stonks.log'])
+subprocess.call(['rm', '/tmp/stonks.error.log'])

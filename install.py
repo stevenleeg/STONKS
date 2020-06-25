@@ -24,6 +24,7 @@ with open(os.path.join(stonks_dir, 'STONKS.plist'), 'w') as f:
 # Copy the python script to the stonks dir
 print('Copying python script into %s' % stonks_dir)
 subprocess.call(['cp', os.path.join(script_directory, 'stonks.py'), os.path.join(stonks_dir, 'stonks.py')])
+subprocess.call(['cp', os.path.join(script_directory, 'STONKS.mp3'), os.path.join(stonks_dir, 'STONKS.mp3')])
 subprocess.call(['chmod', '+x', os.path.join(stonks_dir, 'stonks.py')])
 
 # Install the launcher
